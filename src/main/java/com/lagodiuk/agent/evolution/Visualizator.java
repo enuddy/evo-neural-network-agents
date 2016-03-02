@@ -29,7 +29,7 @@ public class Visualizator {
 	public static void paintEnvironment(Graphics2D canvas, AgentsEnvironment environment) {
 		canvas.clearRect(0, 0, environment.getWidth(), environment.getHeight());
 
-		canvas.setColor(new Color(200, 30, 70));
+		canvas.setColor(Color.GREEN);
 		for (Food food : environment.filter(Food.class)) {
 			int x = (int) food.getX();
 			int y = (int) food.getY();
@@ -37,7 +37,7 @@ public class Visualizator {
 			canvas.fillOval(x - agentRadius, y - agentRadius, agentRadius * 2, agentRadius * 2);
 		}
 
-		canvas.setColor(Color.GREEN);
+		canvas.setColor(Color.BLUE);
 		for (Agent agent : environment.filter(Agent.class)) {
 			int x = (int) agent.getX();
 			int y = (int) agent.getY();
@@ -56,5 +56,6 @@ public class Visualizator {
 			canvas.drawOval(x - agentRadius, y - agentRadius, agentRadius * 2, agentRadius * 2);
 			canvas.drawLine(x, y, rx, ry);
 		}
+
 	}
 }

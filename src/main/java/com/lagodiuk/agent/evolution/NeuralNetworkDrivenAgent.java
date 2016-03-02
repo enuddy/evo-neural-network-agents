@@ -34,8 +34,6 @@ public class NeuralNetworkDrivenAgent extends Agent {
 
 	protected static final double maxAgentsDistance = 5;
 
-	private static final double AGENT = -10;
-
 	private static final double EMPTY = 0;
 
 	private static final double FOOD = 10;
@@ -160,24 +158,7 @@ public class NeuralNetworkDrivenAgent extends Agent {
 			nnInputs.add(0.0);
 		}
 
-		if (nearestAgent != null) {
-			double agentDirectionVectorX = nearestAgent.getX() - x;
-			double agentDirectionVectorY = nearestAgent.getY() - y;
 
-			// left/right cos
-			double agentDirectionCosTeta =
-					Math.signum(this.pseudoScalarProduct(rx, ry, agentDirectionVectorX, agentDirectionVectorY))
-							* this.cosTeta(rx, ry, agentDirectionVectorX, agentDirectionVectorY);
-
-			nnInputs.add(AGENT);
-			nnInputs.add(nearestAgentDist);
-			nnInputs.add(agentDirectionCosTeta);
-
-		} else {
-			nnInputs.add(EMPTY);
-			nnInputs.add(0.0);
-			nnInputs.add(0.0);
-		}
 		return nnInputs;
 	}
 
